@@ -1,0 +1,85 @@
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.partners {
+  @include section-padding;
+  background: $primary;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(233, 69, 96, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(233, 69, 96, 0.02) 1px, transparent 1px);
+    background-size: 100px 100px;
+    pointer-events: none;
+  }
+}
+
+.container {
+  @include container;
+  position: relative;
+  z-index: 2;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-5;
+
+  @include respond-to(tablet) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-6;
+  }
+}
+
+.card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: $space-8;
+  text-align: center;
+  transition: all $transition-base;
+
+  &:hover {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(233, 69, 96, 0.2);
+    transform: translateY(-4px);
+  }
+}
+
+.logoPlaceholder {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(233, 69, 96, 0.1);
+  @include flex-center;
+  margin: 0 auto $space-5;
+
+  span {
+    font-family: $font-display;
+    font-size: $text-3xl;
+    color: $accent;
+    font-weight: 700;
+    line-height: 1;
+  }
+}
+
+.name {
+  font-family: $font-display;
+  font-size: $text-2xl;
+  font-weight: 700;
+  color: $white;
+  letter-spacing: 0.05em;
+  margin-bottom: $space-2;
+}
+
+.subtitle {
+  font-family: $font-primary;
+  font-size: $text-sm;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}

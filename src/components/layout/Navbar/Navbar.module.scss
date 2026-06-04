@@ -1,0 +1,155 @@
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-sticky;
+  padding: 16px 24px;
+  transition: all $transition-slow;
+}
+
+.scrolled {
+  padding: 12px 24px;
+
+  .capsule {
+    background: rgba(26, 26, 46, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(233, 69, 96, 0.15);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+}
+
+.container {
+  @include container;
+}
+
+.capsule {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(26, 26, 46, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 9999px;
+  padding: 8px 16px;
+  transition: all $transition-slow;
+}
+
+.leftLinks, .rightLinks {
+  display: none;
+  align-items: center;
+  gap: 4px;
+
+  @include respond-to(laptop) {
+    display: flex;
+  }
+}
+
+.link {
+  font-family: $font-primary;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.7);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  transition: all $transition-base;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  &:hover {
+    color: $accent;
+    background: rgba(233, 69, 96, 0.1);
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logoImg {
+  height: 55px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.phoneBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: $accent;
+  color: $white;
+  @include flex-center;
+  font-size: 14px;
+  transition: all $transition-base;
+  flex-shrink: 0;
+
+  &:hover {
+    background: $accent-hover;
+    transform: scale(1.1);
+  }
+}
+
+.mobileToggle {
+  display: flex;
+  color: $white;
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+
+  @include respond-to(laptop) {
+    display: none;
+  }
+}
+
+.mobileMenu {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 24px;
+  right: 24px;
+  background: rgba(26, 26, 46, 0.98);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+}
+
+.mobileLink {
+  font-family: $font-primary;
+  font-size: 16px;
+  font-weight: 500;
+  color: $white;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: all $transition-base;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  &:hover {
+    background: rgba(233, 69, 96, 0.1);
+    color: $accent;
+  }
+}
+
+.mobilePhone {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: $accent;
+  font-weight: 600;
+  padding: 10px 14px;
+  margin-top: 8px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-size: 14px;
+}

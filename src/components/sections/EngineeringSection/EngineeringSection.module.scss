@@ -1,0 +1,103 @@
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.engineering {
+  background: $primary;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(233, 69, 96, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(233, 69, 96, 0.02) 1px, transparent 1px);
+    background-size: 100px 100px;
+    pointer-events: none;
+  }
+}
+
+.header {
+  padding: $space-20 $space-5 $space-10;
+
+  @include respond-to(tablet) {
+    padding: $space-24 $space-8 $space-12;
+  }
+}
+
+.container {
+  @include container;
+}
+
+.track {
+  display: flex;
+  gap: $space-8;
+  padding: 0 $space-8 $space-20;
+  will-change: transform;
+}
+
+.item {
+  flex-shrink: 0;
+  width: 85vw;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+  position: relative;
+
+  @include respond-to(tablet) {
+    width: 45vw;
+  }
+}
+
+.number {
+  font-family: $font-display;
+  font-size: clamp($text-6xl, 10vw, $text-7xl);
+  color: rgba(233, 69, 96, 0.1);
+  line-height: 1;
+  position: absolute;
+  top: -$space-8;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.imageWrapper {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  z-index: 1;
+}
+
+.image {
+  @include image-cover;
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26, 26, 46, 0.6), transparent 50%);
+}
+
+.content {
+  z-index: 1;
+  position: relative;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: $text-2xl;
+  font-weight: 700;
+  color: $white;
+  margin-bottom: $space-3;
+  letter-spacing: 0.03em;
+}
+
+.description {
+  font-family: $font-primary;
+  font-size: $text-base;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+}

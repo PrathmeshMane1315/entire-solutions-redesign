@@ -1,0 +1,97 @@
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.industries {
+  @include section-padding;
+  background: $white;
+}
+
+.container {
+  @include container;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $space-2;
+  margin-bottom: $space-10;
+}
+
+.tab {
+  font-family: $font-primary;
+  font-size: $text-sm;
+  font-weight: 500;
+  color: $gray-600;
+  padding: $space-3 $space-5;
+  border-radius: 9999px;
+  border: 1px solid $gray-200;
+  background: $white;
+  cursor: pointer;
+  transition: all $transition-base;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  &:hover {
+    border-color: $accent;
+    color: $accent;
+  }
+
+  &.active {
+    background: $accent;
+    color: $white;
+    border-color: $accent;
+    font-weight: 600;
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-8;
+  align-items: center;
+
+  @include respond-to(desktop) {
+    grid-template-columns: 1fr 1fr;
+    gap: $space-12;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 16/10;
+
+  @include respond-to(desktop) {
+    aspect-ratio: 4/3;
+  }
+}
+
+.image {
+  @include image-cover;
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.2), transparent);
+}
+
+.textContent {
+  .title {
+    font-family: $font-display;
+    font-size: $text-3xl;
+    font-weight: 700;
+    color: $primary;
+    margin-bottom: $space-5;
+    letter-spacing: 0.02em;
+  }
+
+  .description {
+    font-family: $font-primary;
+    font-size: $text-lg;
+    color: $gray-600;
+    line-height: 1.7;
+  }
+}

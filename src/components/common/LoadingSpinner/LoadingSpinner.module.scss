@@ -1,0 +1,85 @@
+@use '@styles/variables' as *;
+@use '@styles/mixins' as *;
+
+.loaderContainer {
+  position: fixed;
+  inset: 0;
+  background: $primary;
+  @include flex-center;
+  z-index: 9999;
+  flex-direction: column;
+}
+
+.loaderContent {
+  @include flex-center;
+  flex-direction: column;
+  gap: $space-8;
+}
+
+.logoWrapper {
+  animation: pulse-glow 2s ease-in-out infinite;
+  border-radius: 50%;
+  padding: $space-4;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+  animation: float 3s ease-in-out infinite;
+}
+
+.countWrapper {
+  @include flex-center;
+  gap: $space-1;
+  font-family: $font-display;
+}
+
+.count {
+  font-size: $text-6xl;
+  font-weight: 800;
+  color: $white;
+  line-height: 1;
+  min-width: 120px;
+  text-align: right;
+}
+
+.percent {
+  font-size: $text-3xl;
+  font-weight: 700;
+  color: $accent-purple;
+  align-self: flex-start;
+}
+
+.progressBar {
+  width: 200px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, $accent-purple, $accent-blue);
+  border-radius: 2px;
+  transition: width 0.05s linear;
+}
+
+// Minimal loader
+.minimalLoader {
+  position: fixed;
+  inset: 0;
+  background: $primary;
+  @include flex-center;
+  z-index: 9999;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top-color: $accent-purple;
+  border-radius: 50%;
+  animation: spin-slow 1s linear infinite;
+}
