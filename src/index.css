@@ -79,50 +79,39 @@
     overflow: hidden;
   }
 
-  /* Parallelogram shape */
-  .shape-parallelogram {
-    clip-path: polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%);
+  /* Parallelogram - slanted rectangle */
+  .img-parallelogram {
+    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
   }
 
-  /* Hexagon shape */
-  .shape-hexagon {
+  /* Hexagon - 6 sides */
+  .img-hexagon {
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
   }
 
-  /* Heptagon shape */
-  .shape-heptagon {
+  /* Heptagon - 7 sides */
+  .img-heptagon {
     clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
   }
 
-  /* Octagon shape */
-  .shape-octagon {
+  /* Octagon - 8 sides */
+  .img-octagon {
     clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
   }
 
-  /* Diamond shape */
-  .shape-diamond {
+  /* Diamond - rotated square */
+  .img-diamond {
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
   }
 
-  /* Trapezoid shape */
-  .shape-trapezoid {
+  /* Trapezoid */
+  .img-trapezoid {
     clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%);
   }
 
-  /* Pentagon shape */
-  .shape-pentagon {
+  /* Pentagon - 5 sides */
+  .img-pentagon {
     clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
-  }
-
-  /* Rounded parallelogram */
-  .shape-rounded-para {
-    border-radius: 20px;
-    transform: skewX(-8deg);
-    overflow: hidden;
-  }
-
-  .shape-rounded-para > * {
-    transform: skewX(8deg);
   }
 }
 

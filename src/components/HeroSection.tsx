@@ -8,7 +8,6 @@ export default function HeroSection() {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950">
-      {/* Video Background */}
       <video
         autoPlay muted loop playsInline
         className="absolute inset-0 w-full h-full object-cover opacity-60"
@@ -17,9 +16,8 @@ export default function HeroSection() {
         <source src="https://videos.pexels.com/video-files/3214448/3214448-uhd_2560_1440_25fps.mp4" type="video/mp4" />
       </video>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/50 to-slate-950/90 z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/40 to-slate-950/90 z-[1]" />
 
-      {/* Animated Glow Orbs */}
       <div className="absolute inset-0 z-[1] overflow-hidden pointer-events-none">
         <motion.div 
           animate={{ x: [0, 120, 0], y: [0, -60, 0], scale: [1, 1.3, 1] }}
@@ -33,9 +31,8 @@ export default function HeroSection() {
         />
       </div>
 
-      {/* Floating Particles */}
       <div className="absolute inset-0 z-[1] pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-1 h-1 bg-cyan-400 rounded-full"

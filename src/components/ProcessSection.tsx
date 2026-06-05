@@ -59,9 +59,9 @@ export default function ProcessSection() {
                 className="relative text-center cursor-pointer group"
               >
                 <div className="relative inline-flex mb-8">
-                  {/* DIAMOND shape container */}
+                  {/* DIAMOND shape icon container */}
                   <motion.div
-                    className="w-28 h-28 shape-diamond bg-white flex items-center justify-center border-2 border-cyan-100 relative z-10 shadow-xl shadow-cyan-100/30 group-hover:border-cyan-300 transition-colors"
+                    className="w-28 h-28 img-diamond bg-white flex items-center justify-center border-2 border-cyan-100 relative z-10 shadow-xl shadow-cyan-100/30 group-hover:border-cyan-300 transition-colors"
                     whileHover={{ rotate: 45, scale: 1.1 }}
                     transition={{ type: "spring", stiffness: 200 }}
                   >
@@ -80,20 +80,10 @@ export default function ProcessSection() {
                   </motion.div>
                 </div>
 
-                <motion.h3
-                  className="text-lg font-bold text-slate-900 mb-3 group-hover:text-cyan-600 transition-colors"
-                  initial={{ opacity: 0 }}
-                  animate={isVisible ? { opacity: 1 } : {}}
-                  transition={{ delay: 0.6 + i * 0.1 }}
-                >
+                <motion.h3 className="text-lg font-bold text-slate-900 mb-3 group-hover:text-cyan-600 transition-colors" initial={{ opacity: 0 }} animate={isVisible ? { opacity: 1 } : {}} transition={{ delay: 0.6 + i * 0.1 }}>
                   {step.title}
                 </motion.h3>
-                <motion.p
-                  className="text-slate-500 text-sm leading-relaxed"
-                  initial={{ opacity: 0 }}
-                  animate={isVisible ? { opacity: 1 } : {}}
-                  transition={{ delay: 0.7 + i * 0.1 }}
-                >
+                <motion.p className="text-slate-500 text-sm leading-relaxed" initial={{ opacity: 0 }} animate={isVisible ? { opacity: 1 } : {}} transition={{ delay: 0.7 + i * 0.1 }}>
                   {step.description}
                 </motion.p>
               </motion.div>

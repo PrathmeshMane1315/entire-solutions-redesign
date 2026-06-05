@@ -78,15 +78,15 @@ export default function ContactSection() {
               ))}
             </div>
 
-            {/* TRAPEZOID map image */}
+            {/* TRAPEZOID map image - fixed */}
             <motion.div
-              className="shape-trapezoid h-64 overflow-hidden shadow-2xl shadow-slate-200/50"
+              className="img-trapezoid h-64 overflow-hidden shadow-2xl shadow-slate-200/50"
               initial={{ opacity: 0, y: 30, scale: 0.9 }}
               animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.7, type: "spring" }}
               whileHover={{ scale: 1.03, y: -5 }}
             >
-              <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&h=400&fit=crop&q=80" alt="Factory" className="w-full h-full object-cover" />
+              <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&h=400&fit=crop&q=80" alt="Factory Location" className="w-full h-full object-cover" />
             </motion.div>
           </motion.div>
 

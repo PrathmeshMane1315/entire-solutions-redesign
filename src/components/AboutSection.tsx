@@ -37,8 +37,8 @@ export default function AboutSection() {
 
       <div className="section-padding mx-auto max-w-7xl relative">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
-          {/* Left - PARALLELOGRAM images with 3D flip animation */}
-          <motion.div style={{ y }} className="relative">
+          {/* Left - PARALLELOGRAM images - FIXED: more bottom padding for stats badge */}
+          <motion.div style={{ y }} className="relative pb-24">
             <motion.div
               initial={{ opacity: 0, rotateY: -90 }}
               animate={isVisible ? { opacity: 1, rotateY: 0 } : {}}
@@ -47,41 +47,41 @@ export default function AboutSection() {
             >
               <div className="space-y-5">
                 <motion.div
-                  className="shape-parallelogram h-56 overflow-hidden shadow-2xl shadow-slate-200/50"
-                  whileHover={{ scale: 1.05, skewX: -4 }}
+                  className="img-parallelogram h-56 overflow-hidden shadow-2xl shadow-slate-200/50"
+                  whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 200 }}
                 >
-                  <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&h=350&fit=crop&q=80" alt="Engineer" className="w-full h-full object-cover" />
+                  <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&h=350&fit=crop&q=80" alt="CNC Machining" className="w-full h-full object-cover" />
                 </motion.div>
                 <motion.div
-                  className="shape-parallelogram h-56 overflow-hidden shadow-2xl shadow-slate-200/50"
-                  whileHover={{ scale: 1.05, skewX: -4 }}
+                  className="img-parallelogram h-56 overflow-hidden shadow-2xl shadow-slate-200/50"
+                  whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 200 }}
                 >
-                  <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500&h=350&fit=crop&q=80" alt="Welding" className="w-full h-full object-cover" />
+                  <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500&h=350&fit=crop&q=80" alt="Laser Welding" className="w-full h-full object-cover" />
                 </motion.div>
               </div>
               <div className="pt-10 space-y-5">
                 <motion.div
-                  className="shape-parallelogram h-56 overflow-hidden shadow-2xl shadow-slate-200/50"
-                  whileHover={{ scale: 1.05, skewX: -4 }}
+                  className="img-parallelogram h-56 overflow-hidden shadow-2xl shadow-slate-200/50"
+                  whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 200 }}
                 >
-                  <img src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=500&h=350&fit=crop&q=80" alt="CNC" className="w-full h-full object-cover" />
+                  <img src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=500&h=350&fit=crop&q=80" alt="CNC Machine" className="w-full h-full object-cover" />
                 </motion.div>
                 <motion.div
-                  className="shape-parallelogram h-56 overflow-hidden shadow-2xl shadow-slate-200/50"
-                  whileHover={{ scale: 1.05, skewX: -4 }}
+                  className="img-parallelogram h-56 overflow-hidden shadow-2xl shadow-slate-200/50"
+                  whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 200 }}
                 >
-                  <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=500&h=350&fit=crop&q=80" alt="Factory" className="w-full h-full object-cover" />
+                  <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=500&h=350&fit=crop&q=80" alt="Factory Floor" className="w-full h-full object-cover" />
                 </motion.div>
               </div>
             </motion.div>
 
-            {/* Floating Stats Badge */}
+            {/* Floating Stats Badge - FIXED: moved lower with more space */}
             <motion.div
-              className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-white rounded-2xl px-8 py-5 shadow-2xl shadow-cyan-100/30 border border-cyan-100"
+              className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white rounded-2xl px-8 py-5 shadow-2xl shadow-cyan-100/30 border border-cyan-100 z-20"
               initial={{ opacity: 0, y: 30, scale: 0.8 }}
               animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.8, type: "spring" }}
@@ -101,7 +101,6 @@ export default function AboutSection() {
             </motion.div>
           </motion.div>
 
-          {/* Right - Content with staggered fade-up */}
           <div className="space-y-8">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={isVisible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}>
               <motion.span className="text-cyan-600 font-semibold text-sm uppercase tracking-wider inline-block" initial={{ opacity: 0, x: -20 }} animate={isVisible ? { opacity: 1, x: 0 } : {}} transition={{ delay: 0.2 }}>
@@ -120,7 +119,6 @@ export default function AboutSection() {
               Driven by advanced machinery and a rigid approach to quality, we serve high-demand B2B sectors including renewable energy, power grids, automotive chains, and infrastructure projects—consistently delivering precisely detailed industrial assets.
             </motion.p>
 
-            {/* Values Grid with flip entrance */}
             <div className="grid grid-cols-2 gap-4 pt-4">
               {values.map((value, i) => (
                 <motion.div

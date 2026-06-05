@@ -92,7 +92,7 @@ export default function TestimonialsSection() {
                 <div className="flex items-center gap-5">
                   {/* PENTAGON avatar */}
                   <motion.div
-                    className="w-20 h-20 shape-pentagon overflow-hidden shadow-xl"
+                    className="w-20 h-20 img-pentagon overflow-hidden shadow-xl"
                     whileHover={{ scale: 1.2, rotate: 10 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >

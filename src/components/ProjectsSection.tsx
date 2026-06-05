@@ -34,7 +34,7 @@ export default function ProjectsSection() {
   return (
     <section id="projects" ref={sectionRef} className="py-28 bg-white relative overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-cyan-50/50 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-20 w-72 h-72 bg-cyan-50/40 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-20 w-96 h-96 bg-cyan-100/30 rounded-full blur-3xl" />
       </div>
 
@@ -87,25 +87,21 @@ export default function ProjectsSection() {
                 exit={{ opacity: 0, rotateY: 90, scale: 0.8 }}
                 transition={{ duration: 0.5, delay: i * 0.08, type: "spring", stiffness: 100 }}
                 whileHover={{ y: -12, scale: 1.02, rotateY: 5, transition: { type: "spring", stiffness: 300 } }}
-                className="group relative rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-lg shadow-slate-100/50 hover:shadow-2xl hover:shadow-cyan-100/20 hover:border-cyan-200 transition-colors cursor-pointer"
+                className="group text-center cursor-pointer"
                 style={{ perspective: 1000 }}
               >
-                <div className="relative h-56 overflow-hidden flex items-center justify-center bg-slate-100">
-                  {/* OCTAGON image */}
+                {/* OCTAGON image - the image IS the shape */}
+                <div className="relative flex justify-center mb-6">
                   <motion.div
-                    className="w-64 h-56 shape-octagon overflow-hidden"
-                    whileHover={{ scale: 1.2, rotate: 15 }}
+                    className="w-72 h-64 img-octagon overflow-hidden shadow-2xl shadow-slate-200/50"
+                    whileHover={{ scale: 1.1, rotate: 10 }}
                     transition={{ duration: 0.6, type: "spring" }}
                   >
                     <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
                   </motion.div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent pointer-events-none" />
 
                   <motion.div
-                    className="absolute inset-0 flex items-center justify-center"
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
+                    className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                   >
                     <motion.div
                       className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/40 cursor-pointer"
@@ -116,14 +112,14 @@ export default function ProjectsSection() {
                     </motion.div>
                   </motion.div>
 
-                  <motion.div className="absolute top-4 left-4" initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.2 }}>
+                  <motion.div className="absolute top-4 left-1/2 -translate-x-1/2" initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }}>
                     <span className="px-4 py-1.5 bg-white/90 backdrop-blur-sm text-cyan-700 text-xs font-semibold rounded-full shadow-lg">
                       {project.category}
                     </span>
                   </motion.div>
                 </div>
 
-                <div className="p-7">
+                <div className="px-4">
                   <p className="text-xs text-cyan-600 font-semibold mb-2 uppercase tracking-wider">{project.client}</p>
                   <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-cyan-600 transition-colors">
                     {project.title}

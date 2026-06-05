@@ -3,12 +3,12 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { Zap, ArrowRight } from 'lucide-react'
 
 const divisions = [
-  { title: 'Laser Cutting', description: 'High-precision fiber laser systems achieving micron-level accuracy for complex sheet metal geometries.', image: 'https://images.unsplash.com/photo-1581092918056-0b4eef618912?w=600&h=400&fit=crop&q=80' },
-  { title: 'CNC Bending', description: 'Automated multi-axis CNC bending cells ensuring consistent angles and structural integrity for high-volume production.', image: 'https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=600&h=400&fit=crop&q=80' },
-  { title: 'Profile Cutting', description: 'Advanced plasma and oxy-fuel profile cutting for heavy-duty structural components used in demanding industrial environments.', image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&h=400&fit=crop&q=80' },
-  { title: 'Welding Systems', description: 'Certified MIG/TIG welding operations focusing on structural strength, seamless finishes, and rigorous quality standards.', image: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?w=600&h=400&fit=crop&q=80' },
-  { title: 'Drilling & Tap', description: 'Precision-engineered hole patterns, tapping, and countersinking services for specialized mechanical assemblies.', image: 'https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=600&h=400&fit=crop&q=80' },
-  { title: 'Painting Unit', description: 'In-house industrial coating facility providing electrostatic powder coating and high-durability finishes for all climates.', image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop&q=80' },
+  { title: 'Laser Cutting', description: 'High-precision fiber laser systems achieving micron-level accuracy for complex sheet metal geometries.', image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&h=400&fit=crop&q=80' },
+  { title: 'CNC Bending', description: 'Automated multi-axis CNC bending cells ensuring consistent angles and structural integrity for high-volume production.', image: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&h=400&fit=crop&q=80' },
+  { title: 'Profile Cutting', description: 'Advanced plasma and oxy-fuel profile cutting for heavy-duty structural components used in demanding industrial environments.', image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&h=400&fit=crop&q=80' },
+  { title: 'Welding Systems', description: 'Certified MIG/TIG welding operations focusing on structural strength, seamless finishes, and rigorous quality standards.', image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop&q=80' },
+  { title: 'Drilling & Tap', description: 'Precision-engineered hole patterns, tapping, and countersinking services for specialized mechanical assemblies.', image: 'https://images.unsplash.com/photo-1581092918056-0b4eef618912?w=600&h=400&fit=crop&q=80' },
+  { title: 'Painting Unit', description: 'In-house industrial coating facility providing electrostatic powder coating and high-durability finishes for all climates.', image: 'https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=600&h=400&fit=crop&q=80' },
 ]
 
 export default function EngineeringDivision() {
@@ -54,31 +54,28 @@ export default function EngineeringDivision() {
               animate={isVisible ? { opacity: 1, scale: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1, type: "spring", stiffness: 120, damping: 12 }}
               whileHover={{ y: -15, scale: 1.03, transition: { type: "spring", stiffness: 300, damping: 15 } }}
-              className="group bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-lg shadow-slate-100/50 hover:shadow-2xl hover:shadow-cyan-100/20 hover:border-cyan-200 transition-colors cursor-pointer"
+              className="group text-center cursor-pointer"
             >
-              {/* HEXAGON image container */}
-              <div className="relative h-56 overflow-hidden flex items-center justify-center bg-slate-100">
+              {/* HEXAGON image - the image IS the shape */}
+              <div className="relative flex justify-center mb-6">
                 <motion.div
-                  className="w-64 h-56 shape-hexagon overflow-hidden"
-                  whileHover={{ scale: 1.15, rotate: 5 }}
-                  transition={{ duration: 0.5 }}
+                  className="w-72 h-64 img-hexagon overflow-hidden shadow-2xl shadow-slate-200/50"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.5, type: "spring" }}
                 >
                   <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
                 </motion.div>
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent pointer-events-none" />
                 <motion.div
-                  className="absolute bottom-4 left-1/2 -translate-x-1/2"
+                  className="absolute -bottom-3 px-4 py-1.5 bg-white/90 backdrop-blur-sm text-cyan-700 text-sm font-semibold rounded-full shadow-lg border border-cyan-100"
                   initial={{ y: 20, opacity: 0 }}
                   animate={isVisible ? { y: 0, opacity: 1 } : {}}
                   transition={{ delay: 0.4 + i * 0.1, type: "spring" }}
                 >
-                  <span className="px-4 py-1.5 bg-white/90 backdrop-blur-sm text-cyan-700 text-sm font-semibold rounded-full shadow-lg">
-                    {item.title}
-                  </span>
+                  {item.title}
                 </motion.div>
               </div>
 
-              <div className="p-7">
+              <div className="px-4">
                 <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-cyan-600 transition-colors">
                   {item.title}
                 </h3>
@@ -86,9 +83,7 @@ export default function EngineeringDivision() {
                   {item.description}
                 </p>
                 <motion.div
-                  className="mt-4 flex items-center gap-2 text-cyan-600 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity"
-                  initial={{ x: -10 }}
-                  whileHover={{ x: 0 }}
+                  className="mt-4 flex items-center justify-center gap-2 text-cyan-600 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity"
                 >
                   Learn more <motion.div animate={{ x: [0, 5, 0] }} transition={{ duration: 1, repeat: Infinity }}><ArrowRight className="w-4 h-4" /></motion.div>
                 </motion.div>

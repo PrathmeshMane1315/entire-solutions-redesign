@@ -3,12 +3,12 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { Scissors, Layers, Paintbrush, Box, Wrench, Flame, Sparkles, ArrowUpRight } from 'lucide-react'
 
 const services = [
-  { icon: Scissors, title: 'Laser Cutting', description: 'High-precision fiber laser cutting for complex sheet metal patterns with clean edges.', image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&h=400&fit=crop&q=80', color: 'from-cyan-400 to-cyan-600' },
-  { icon: Layers, title: 'Heavy Fabrication', description: 'Robust light & heavy structural steel fabrication built to sustain demanding industrial loads.', image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop&q=80', color: 'from-blue-400 to-blue-600' },
-  { icon: Paintbrush, title: 'Powder Coating', description: 'Durable protective finishing layer offering high resistance against weathering and corrosion.', image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop&q=80', color: 'from-teal-400 to-teal-600' },
-  { icon: Box, title: 'Electrical Panel Boxes', description: 'Custom-engineered electrical enclosures, junction boxes, and distribution panels.', image: 'https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=600&h=400&fit=crop&q=80', color: 'from-sky-400 to-sky-600' },
-  { icon: Wrench, title: 'Sheet Metal Bending', description: 'Accurate industrial bending and CNC press brake forming for flawless assembly geometry.', image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&h=400&fit=crop&q=80', color: 'from-cyan-500 to-blue-500' },
-  { icon: Flame, title: 'Welding & Assembly', description: 'Expert drilling, tapping, and professional-grade TIG/MIG production welding runs.', image: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?w=600&h=400&fit=crop&q=80', color: 'from-blue-500 to-cyan-500' },
+  { icon: Scissors, title: 'Laser Cutting', description: 'High-precision fiber laser cutting for complex sheet metal patterns with clean edges.', image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&h=400&fit=crop&q=80', color: 'from-cyan-400 to-cyan-600' },
+  { icon: Layers, title: 'Heavy Fabrication', description: 'Robust light & heavy structural steel fabrication built to sustain demanding industrial loads.', image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&h=400&fit=crop&q=80', color: 'from-blue-400 to-blue-600' },
+  { icon: Paintbrush, title: 'Powder Coating', description: 'Durable protective finishing layer offering high resistance against weathering and corrosion.', image: 'https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=600&h=400&fit=crop&q=80', color: 'from-teal-400 to-teal-600' },
+  { icon: Box, title: 'Electrical Panel Boxes', description: 'Custom-engineered electrical enclosures, junction boxes, and distribution panels.', image: 'https://images.unsplash.com/photo-1581092918056-0b4eef618912?w=600&h=400&fit=crop&q=80', color: 'from-sky-400 to-sky-600' },
+  { icon: Wrench, title: 'Sheet Metal Bending', description: 'Accurate industrial bending and CNC press brake forming for flawless assembly geometry.', image: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&h=400&fit=crop&q=80', color: 'from-cyan-500 to-blue-500' },
+  { icon: Flame, title: 'Welding & Assembly', description: 'Expert drilling, tapping, and professional-grade TIG/MIG production welding runs.', image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop&q=80', color: 'from-blue-500 to-cyan-500' },
 ]
 
 export default function ServicesSection() {
@@ -54,18 +54,17 @@ export default function ServicesSection() {
               animate={isVisible ? { opacity: 1, x: 0, y: 0 } : {}}
               transition={{ duration: 0.7, delay: i * 0.1, type: "spring", stiffness: 80, damping: 15 }}
               whileHover={{ y: -15, scale: 1.02, transition: { type: "spring", stiffness: 300, damping: 15 } }}
-              className="group bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-lg shadow-slate-100/50 hover:shadow-2xl hover:shadow-cyan-100/20 hover:border-cyan-200 transition-colors cursor-pointer"
+              className="group text-center cursor-pointer"
             >
-              {/* HEPTAGON image container */}
-              <div className="relative h-52 overflow-hidden flex items-center justify-center bg-slate-100">
+              {/* HEPTAGON image - the image IS the shape */}
+              <div className="relative flex justify-center mb-6">
                 <motion.div
-                  className="w-72 h-52 shape-heptagon overflow-hidden"
-                  whileHover={{ scale: 1.2, rotate: 10 }}
+                  className="w-72 h-64 img-heptagon overflow-hidden shadow-2xl shadow-slate-200/50"
+                  whileHover={{ scale: 1.1, rotate: 8 }}
                   transition={{ duration: 0.6, type: "spring" }}
                 >
                   <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
                 </motion.div>
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent pointer-events-none" />
                 <motion.div
                   className="absolute bottom-4 left-4"
                   initial={{ x: -20, opacity: 0 }}
@@ -77,7 +76,7 @@ export default function ServicesSection() {
                   </div>
                 </motion.div>
                 <motion.div
-                  className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity"
+                  className="absolute top-4 right-1/4 opacity-0 group-hover:opacity-100 transition-opacity"
                   whileHover={{ scale: 1.2, rotate: 45 }}
                 >
                   <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30">
@@ -86,7 +85,7 @@ export default function ServicesSection() {
                 </motion.div>
               </div>
 
-              <div className="p-7">
+              <div className="px-4">
                 <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-cyan-600 transition-colors">
                   {service.title}
                 </h3>
