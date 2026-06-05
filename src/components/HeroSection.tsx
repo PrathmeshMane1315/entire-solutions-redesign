@@ -13,7 +13,7 @@ export default function HeroSection() {
         className="absolute inset-0 w-full h-full object-cover opacity-60"
         poster="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&q=80"
       >
-        <source src="https://videos.pexels.com/video-files/3214448/3214448-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+        <source src="public/videos/welding-bg.mp4" type="video/mp4" />
       </video>
 
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/40 to-slate-950/90 z-[1]" />

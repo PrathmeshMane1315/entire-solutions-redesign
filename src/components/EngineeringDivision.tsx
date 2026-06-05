@@ -4,10 +4,10 @@ import { Zap, ArrowRight } from 'lucide-react'
 
 const divisions = [
   { title: 'Laser Cutting', description: 'High-precision fiber laser systems achieving micron-level accuracy for complex sheet metal geometries.', image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&h=400&fit=crop&q=80' },
-  { title: 'CNC Bending', description: 'Automated multi-axis CNC bending cells ensuring consistent angles and structural integrity for high-volume production.', image: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&h=400&fit=crop&q=80' },
-  { title: 'Profile Cutting', description: 'Advanced plasma and oxy-fuel profile cutting for heavy-duty structural components used in demanding industrial environments.', image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&h=400&fit=crop&q=80' },
+  { title: 'CNC Bending', description: 'Automated multi-axis CNC bending cells ensuring consistent angles and structural integrity for high-volume production.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt4RIUFqrX9BDT1_nMotgYPEYrlsw1Z0fgaA&s' },
+  { title: 'Profile Cutting', description: 'Advanced plasma and oxy-fuel profile cutting for heavy-duty structural components used in demanding industrial environments.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWUB47K2jslojEhzJ4y9RVXY1b8dJumvss1w&s' },
   { title: 'Welding Systems', description: 'Certified MIG/TIG welding operations focusing on structural strength, seamless finishes, and rigorous quality standards.', image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop&q=80' },
-  { title: 'Drilling & Tap', description: 'Precision-engineered hole patterns, tapping, and countersinking services for specialized mechanical assemblies.', image: 'https://images.unsplash.com/photo-1581092918056-0b4eef618912?w=600&h=400&fit=crop&q=80' },
+  { title: 'Drilling & Tap', description: 'Precision-engineered hole patterns, tapping, and countersinking services for specialized mechanical assemblies.', image: 'https://www.hlc-metalparts.com/uploads/39640/news/p20240311091946ed0fc.jpg?size=480x0' },
   { title: 'Painting Unit', description: 'In-house industrial coating facility providing electrostatic powder coating and high-durability finishes for all climates.', image: 'https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=600&h=400&fit=crop&q=80' },
 ]
 

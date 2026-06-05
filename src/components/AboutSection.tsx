@@ -9,12 +9,6 @@ const values = [
   { icon: Zap, title: 'Rapid Delivery', description: '24/7 operations and optimized workflows ensure your deadlines are always met.' },
 ]
 
-const stats = [
-  { icon: TrendingUp, value: '500+', label: 'Projects Completed' },
-  { icon: Shield, value: '99.8%', label: 'Quality Rate' },
-  { icon: Award, value: 'ISO', label: 'Certified' },
-  { icon: Target, value: '±0.001', label: 'mm Tolerance' },
-]
 
 export default function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -87,17 +81,7 @@ export default function AboutSection() {
               transition={{ duration: 0.6, delay: 0.8, type: "spring" }}
               whileHover={{ y: -5, scale: 1.03 }}
             >
-              <div className="flex gap-8">
-                {stats.map((stat, i) => (
-                  <motion.div key={i} className="text-center" whileHover={{ scale: 1.2, y: -3 }} transition={{ type: "spring" }}>
-                    <motion.div animate={{ rotate: [0, 10, -10, 0] }} transition={{ duration: 3, repeat: Infinity, delay: i * 0.5 }}>
-                      <stat.icon className="w-5 h-5 text-cyan-500 mx-auto mb-1" />
-                    </motion.div>
-                    <span className="text-xl font-bold text-slate-900">{stat.value}</span>
-                    <p className="text-xs text-slate-500">{stat.label}</p>
-                  </motion.div>
-                ))}
-              </div>
+              
             </motion.div>
           </motion.div>
 

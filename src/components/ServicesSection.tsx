@@ -3,12 +3,12 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { Scissors, Layers, Paintbrush, Box, Wrench, Flame, Sparkles, ArrowUpRight } from 'lucide-react'
 
 const services = [
-  { icon: Scissors, title: 'Laser Cutting', description: 'High-precision fiber laser cutting for complex sheet metal patterns with clean edges.', image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&h=400&fit=crop&q=80', color: 'from-cyan-400 to-cyan-600' },
-  { icon: Layers, title: 'Heavy Fabrication', description: 'Robust light & heavy structural steel fabrication built to sustain demanding industrial loads.', image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&h=400&fit=crop&q=80', color: 'from-blue-400 to-blue-600' },
-  { icon: Paintbrush, title: 'Powder Coating', description: 'Durable protective finishing layer offering high resistance against weathering and corrosion.', image: 'https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=600&h=400&fit=crop&q=80', color: 'from-teal-400 to-teal-600' },
-  { icon: Box, title: 'Electrical Panel Boxes', description: 'Custom-engineered electrical enclosures, junction boxes, and distribution panels.', image: 'https://images.unsplash.com/photo-1581092918056-0b4eef618912?w=600&h=400&fit=crop&q=80', color: 'from-sky-400 to-sky-600' },
-  { icon: Wrench, title: 'Sheet Metal Bending', description: 'Accurate industrial bending and CNC press brake forming for flawless assembly geometry.', image: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&h=400&fit=crop&q=80', color: 'from-cyan-500 to-blue-500' },
-  { icon: Flame, title: 'Welding & Assembly', description: 'Expert drilling, tapping, and professional-grade TIG/MIG production welding runs.', image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop&q=80', color: 'from-blue-500 to-cyan-500' },
+  { icon: Scissors, title: 'Laser Cutting', description: 'High-precision fiber laser cutting for complex sheet metal patterns with clean edges.', image: 'https://www.stylecnc.com/uploads/allimg/200612/1-2006121231280-L.jpg', color: 'from-cyan-400 to-cyan-600' },
+  { icon: Layers, title: 'Heavy Fabrication', description: 'Robust light & heavy structural steel fabrication built to sustain demanding industrial loads.', image: 'https://www.kairaviinfrastructure.com/assets/img/kipl/keyword/heavy-steel-fabrication-work.png', color: 'from-blue-400 to-blue-600' },
+  { icon: Paintbrush, title: 'Powder Coating', description: 'Durable protective finishing layer offering high resistance against weathering and corrosion.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoEJdfQB17YIgi0AH9Kf3RtrqmhIx8h04lJQ&s', color: 'from-teal-400 to-teal-600' },
+  { icon: Box, title: 'Electrical Panel Boxes', description: 'Custom-engineered electrical enclosures, junction boxes, and distribution panels.', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlQov4uGAOMYlfkqxck6wIJdvOxJwcLKbUBQ&s', color: 'from-sky-400 to-sky-600' },
+  { icon: Wrench, title: 'Sheet Metal Bending', description: 'Accurate industrial bending and CNC press brake forming for flawless assembly geometry.', image: 'https://www.komaspec.com/media/prwhkkp4/sheet-metal-bending.jpg', color: 'from-cyan-500 to-blue-500' },
+  { icon: Flame, title: 'Welding & Assembly', description: 'Expert drilling, tapping, and professional-grade TIG/MIG production welding runs.', image: 'https://shengenfab.com/wp-content/uploads/2024/05/welder-assembler-768x430.webp', color: 'from-blue-500 to-cyan-500' },
 ]
 
 export default function ServicesSection() {
