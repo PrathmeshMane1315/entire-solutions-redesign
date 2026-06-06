@@ -51,7 +51,7 @@ export function FeaturedProject() {
                 alt="Wind Turbine Manufacturing" 
                className="absolute inset-0 w-full h-full object-cover object-center"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = "public/Wind Power Blade Repair Fixtures.png";
+                  (e.target as HTMLImageElement).src = "https://i.pinimg.com/736x/b2/65/22/b2652224d48825ca2e5265caaf4cca70.jpg";
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-r from-slate-100 via-transparent to-transparent lg:block hidden" />
