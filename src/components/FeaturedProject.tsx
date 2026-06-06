@@ -51,7 +51,7 @@ export function FeaturedProject() {
                 alt="Wind Turbine Manufacturing" 
                className="absolute inset-0 w-full h-full object-cover object-center"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = "https://3479933a-4c80-448a-b86b-dc9f286ca0af-00-1g0k5hs9kevgy.sisko.replit.dev/src/assets/images/wind-turbine.png";
+                  (e.target as HTMLImageElement).src = "public/Wind Power Blade Repair Fixtures.png";
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-r from-slate-100 via-transparent to-transparent lg:block hidden" />
