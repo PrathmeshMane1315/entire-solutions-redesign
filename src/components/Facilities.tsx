@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Wrench, Component, Box, Flame, ArrowDownToDot, Paintbrush } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { TiltCard } from "@/components/TiltCard";
 
 const facilities = [
   {
@@ -37,14 +37,11 @@ const facilities = [
 
 const containerVariants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 }
-  }
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
 };
 
@@ -69,7 +66,7 @@ export function Facilities() {
           </motion.div>
         </div>
 
-        <motion.div 
+        <motion.div
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
           variants={containerVariants}
           initial="hidden"
@@ -77,25 +74,23 @@ export function Facilities() {
           viewport={{ once: true, margin: "-50px" }}
         >
           {facilities.map((facility, index) => (
-            <motion.div key={index} variants={itemVariants}>
-              <Card className="h-full bg-white/80 backdrop-blur-sm border-slate-200 shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 group hover:-translate-y-2 overflow-hidden relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:to-accent/5 transition-colors duration-500" />
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent transform -translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-                
-                <CardHeader>
-                  <div className="w-14 h-14 rounded-xl bg-slate-100 group-hover:bg-primary/10 flex items-center justify-center mb-4 transition-colors duration-300">
+            <motion.div key={index} variants={itemVariants} className="group">
+              <TiltCard className="h-full rounded-2xl">
+                <div className="h-full bg-white/80 backdrop-blur-sm border border-slate-200 shadow-sm group-hover:shadow-xl group-hover:shadow-primary/10 transition-all duration-300 rounded-2xl overflow-hidden relative p-6">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:to-accent/5 transition-colors duration-500 rounded-2xl" />
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent transform -translate-y-full group-hover:translate-y-0 transition-transform duration-300 rounded-t-2xl" />
+
+                  <div className="w-14 h-14 rounded-xl bg-slate-100 group-hover:bg-primary/10 flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110">
                     <facility.icon className="w-7 h-7 text-slate-700 group-hover:text-primary transition-colors duration-300" />
                   </div>
-                  <CardTitle className="text-xl font-bold text-slate-900 group-hover:text-primary transition-colors duration-300">
+                  <h4 className="text-xl font-bold text-slate-900 group-hover:text-primary transition-colors duration-300 mb-3">
                     {facility.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
+                  </h4>
                   <p className="text-slate-600 leading-relaxed">
                     {facility.description}
                   </p>
-                </CardContent>
-              </Card>
+                </div>
+              </TiltCard>
             </motion.div>
           ))}
         </motion.div>

@@ -1,5 +1,7 @@
 import { Preloader } from "@/components/Preloader";
+import { CustomCursor } from "@/components/CustomCursor";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { ShatterReveal } from "@/components/ShatterReveal";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
@@ -14,20 +16,37 @@ import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-slate-50 font-sans selection:bg-primary/30">
+    <div className="min-h-screen bg-slate-50 font-sans selection:bg-primary/30 cursor-none">
       <Preloader />
+      <CustomCursor />
       <ScrollProgress />
       <Navbar />
       <main>
         <Hero />
-        <About />
-        <Facilities />
-        <Services />
-        <WhyChooseUs />
-        <FeaturedProject />
-        <LiveOperations />
-        <RenewableEnergy />
-        <Contact />
+        <ShatterReveal delay={0}>
+          <About />
+        </ShatterReveal>
+        <ShatterReveal delay={0.05}>
+          <Facilities />
+        </ShatterReveal>
+        <ShatterReveal delay={0}>
+          <Services />
+        </ShatterReveal>
+        <ShatterReveal delay={0.05}>
+          <WhyChooseUs />
+        </ShatterReveal>
+        <ShatterReveal delay={0}>
+          <FeaturedProject />
+        </ShatterReveal>
+        <ShatterReveal delay={0.05}>
+          <LiveOperations />
+        </ShatterReveal>
+        <ShatterReveal delay={0}>
+          <RenewableEnergy />
+        </ShatterReveal>
+        <ShatterReveal delay={0.05}>
+          <Contact />
+        </ShatterReveal>
       </main>
       <Footer />
     </div>
