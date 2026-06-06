@@ -11,7 +11,7 @@ export default function HeroSection() {
       <video
         autoPlay muted loop playsInline
         className="absolute inset-0 w-full h-full object-cover opacity-60"
-        poster="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&q=80"
+        {/* poster="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&q=80" */}
       >
         <source src="public/videos/welding-bg.mp4" type="video/mp4" />
       </video>
