@@ -1,170 +1,123 @@
-import { useState, useEffect } from 'react'
-import { Menu, X, ChevronRight } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { cn } from '../lib/utils.ts'
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "wouter";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-const navLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Services', href: '#services' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Process', href: '#process' },
-  { name: 'Contact', href: '#contact' },
-]
-
-export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-  const [activeSection, setActiveSection] = useState('home')
+export function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-      const sections = navLinks.map(link => link.href.replace('#', ''))
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i])
-        if (el) {
-          const rect = el.getBoundingClientRect()
-          if (rect.top <= 150) {
-            setActiveSection(sections[i])
-            break
-          }
-        }
-      }
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  const scrollToSection = (href: string) => {
-    const el = document.querySelector(href)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-    setIsOpen(false)
-  }
+  const navLinks = [
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Facilities", href: "#facilities" },
+    { name: "Services", href: "#services" },
+    { name: "Projects", href: "#projects" },
+    { name: "Contact", href: "#contact" },
+  ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+    setMobileMenuOpen(false);
+  };
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
+    <header
+      className={`fixed top-0 w-full z-40 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/90 backdrop-blur-xl shadow-lg shadow-slate-200/50 border-b border-slate-100'
-          : 'bg-transparent'
-      )}
+          ? "bg-white/80 backdrop-blur-md border-b border-purple-100 shadow-sm py-3"
+          : "bg-transparent py-5"
+      }`}
     >
-      <div className="section-padding mx-auto max-w-7xl">
-        <div className="flex items-center justify-between h-20">
-          <motion.a
-            href="#home"
-            onClick={(e) => { e.preventDefault(); scrollToSection('#home') }}
-            className="flex items-center gap-2 group"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-cyan-700 rounded-lg flex items-center justify-center shadow-lg shadow-cyan-500/30 group-hover:shadow-cyan-500/50 transition-all">
-              <span className="text-white font-bold text-lg">E</span>
-            </div>
-            <div className="hidden sm:block">
-              <span className="text-xl font-bold text-slate-900 tracking-tight">
-                Entire <span className="text-cyan-600">Solutions</span>
-              </span>
-            </div>
-          </motion.a>
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-2 group">
+            <img
+              src="/logo.png"
+              alt="Entire Solutions Logo"
+              className="h-10 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+            />
+          </Link>
 
-          <div className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <motion.a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => { e.preventDefault(); scrollToSection(link.href) }}
-                className={cn(
-                  'px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative',
-                  activeSection === link.href.replace('#', '')
-                    ? 'text-cyan-600 bg-cyan-50'
-                    : 'text-slate-600 hover:text-cyan-600 hover:bg-cyan-50/50'
-                )}
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {link.name}
-                {activeSection === link.href.replace('#', '') && (
-                  <motion.div
-                    layoutId="activeNav"
-                    className="absolute bottom-0 left-2 right-2 h-0.5 bg-cyan-500 rounded-full"
-                    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                  />
-                )}
-              </motion.a>
-            ))}
-          </div>
-
-          <div className="hidden lg:flex items-center gap-4">
-            <motion.a
-              href="#contact"
-              onClick={(e) => { e.preventDefault(); scrollToSection('#contact') }}
-              className="btn-primary flex items-center gap-2 text-sm"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-8">
+            <ul className="flex items-center gap-6">
+              {navLinks.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="text-sm font-medium text-slate-600 hover:text-primary transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <Button
+              className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white shadow-lg shadow-primary/20 rounded-full px-6"
+              onClick={(e) => handleNavClick(e as any, "#contact")}
             >
               Get Quote
-              <ChevronRight className="w-4 h-4" />
-            </motion.a>
-          </div>
+            </Button>
+          </nav>
 
-          <motion.button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-cyan-50 transition-colors"
-            whileTap={{ scale: 0.9 }}
+          {/* Mobile Toggle */}
+          <button
+            className="md:hidden p-2 text-slate-600"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </motion.button>
+            {mobileMenuOpen ? <X /> : <Menu />}
+          </button>
         </div>
       </div>
 
+      {/* Mobile Nav */}
       <AnimatePresence>
-        {isOpen && (
+        {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl border-b border-slate-100 shadow-xl overflow-hidden"
+            className="md:hidden bg-white border-b border-slate-100 overflow-hidden"
           >
-            <div className="section-padding py-4 space-y-1">
-              {navLinks.map((link, i) => (
-                <motion.a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => { e.preventDefault(); scrollToSection(link.href) }}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 }}
-                  className={cn(
-                    'block px-4 py-3 rounded-lg text-sm font-medium transition-all',
-                    activeSection === link.href.replace('#', '')
-                      ? 'text-cyan-600 bg-cyan-50'
-                      : 'text-slate-600 hover:text-cyan-600 hover:bg-cyan-50/50'
-                  )}
-                >
-                  {link.name}
-                </motion.a>
+            <ul className="px-4 py-6 flex flex-col gap-4">
+              {navLinks.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="block text-lg font-medium text-slate-800"
+                  >
+                    {link.name}
+                  </a>
+                </li>
               ))}
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }} className="pt-2">
-                <a
-                  href="#contact"
-                  onClick={(e) => { e.preventDefault(); scrollToSection('#contact') }}
-                  className="btn-primary w-full flex items-center justify-center gap-2 text-sm"
+              <li className="pt-4">
+                <Button
+                  className="w-full bg-gradient-to-r from-primary to-secondary text-white rounded-full"
+                  onClick={(e) => handleNavClick(e as any, "#contact")}
                 >
                   Get Quote
-                  <ChevronRight className="w-4 h-4" />
-                </a>
-              </motion.div>
-            </div>
+                </Button>
+              </li>
+            </ul>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
-  )
+    </header>
+  );
 }

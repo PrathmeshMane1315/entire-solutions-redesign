@@ -1,18 +1,32 @@
-import { useEffect } from 'react'
-import Navbar from './components/Navbar.tsx'
-import HomePage from './pages/HomePage.tsx'
+import { Switch, Route, Router as WouterRouter } from "wouter";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "@/components/ui/toaster";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import NotFound from "@/pages/not-found";
+import Home from "@/pages/Home";
 
-function App() {
-  useEffect(() => {
-    document.documentElement.style.scrollBehavior = 'smooth'
-  }, [])
+const queryClient = new QueryClient();
 
+function Router() {
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
-      <Navbar />
-      <HomePage />
-    </div>
-  )
+    <Switch>
+      <Route path="/" component={Home} />
+      <Route component={NotFound} />
+    </Switch>
+  );
 }
 
-export default App
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+          <Router />
+        </WouterRouter>
+        <Toaster />
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+}
+
+export default App;

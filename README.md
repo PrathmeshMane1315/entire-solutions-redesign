@@ -1,78 +1,55 @@
-# Entire Solutions - Premium Industrial Website
+# Entire Solutions — Website
 
-A premium, futuristic industrial engineering website built with React, Vite, and modern web technologies.
+  Premium industrial manufacturing company website built with React + Vite + Tailwind CSS + Framer Motion.
 
-## Tech Stack
+  ## Requirements
+  - Node.js v18 or higher → https://nodejs.org
+  - npm (comes with Node.js)
 
-- **React 19** - UI Framework
-- **Vite** - Build Tool
-- **TypeScript** - Type Safety
-- **Tailwind CSS** - Styling
-- **Framer Motion** - Animations
-- **GSAP + ScrollTrigger** - Scroll Animations
-- **Lenis** - Smooth Scrolling
-- **Three.js + React Three Fiber** - 3D Hero Scene
-- **Lucide React** - Icons
+  ## Installation (Step by Step)
 
-## Features
+  ### Step 1 — Install dependencies
+  ```
+  npm install
+  ```
 
-- 🎨 Dark premium industrial theme with cyan accent colors
-- 🔄 Advanced preloader with rotating steel ring animation
-- 🎯 Interactive 3D hero section with Three.js
-- 📜 Smooth scrolling with Lenis
-- ✨ GSAP ScrollTrigger animations
-- 🎭 Framer Motion hover effects and transitions
-- 📱 Fully responsive design
-- 🖼️ Masonry project gallery with filter
-- 📊 Animated counters and statistics
-- 📝 Premium contact form
-- 🏗️ Bento grid services layout
-- ⏱️ Horizontal process timeline
+  ### Step 2 — Start development server
+  ```
+  npm run dev
+  ```
+  Open http://localhost:5173 in your browser.
 
-## Getting Started
+  ### Step 3 — Build for production
+  ```
+  npm run build
+  ```
+  Output is in the `dist/` folder.
 
-```bash
-# Install dependencies
-npm install
+  ### Step 4 — Preview production build
+  ```
+  npm run preview
+  ```
 
-# Start development server
-npm run dev
+  ## Libraries Used
+  | Library | Version | Purpose |
+  |---|---|---|
+  | react | ^19.1.0 | UI framework |
+  | react-dom | ^19.1.0 | DOM rendering |
+  | vite | ^7.3.2 | Build tool |
+  | framer-motion | ^12.23.24 | Animations |
+  | lucide-react | ^0.545.0 | Icons |
+  | tailwindcss | ^4.1.14 | CSS styling |
+  | react-hook-form | ^7.55.0 | Contact form |
+  | zod | ^3.25.76 | Form validation |
+  | wouter | ^3.3.5 | Routing |
+  | @tanstack/react-query | ^5.90.21 | Data fetching |
 
-# Build for production
-npm run build
-```
+  ## Company Info
+  **Entire Solutions**
+  Plot No. 03, Sr. No. 101, Wadmukhwadi Road, Tapkir Nagar,
+  Khadi Machine Road, Bhosari - 412105
+  Phone: +91 7020493239 | +91 9222089025
+  Email: entiresolutions20@gmail.com
 
-## Project Structure
-
-```
-src/
-  components/     - React components
-  pages/          - Page components
-  hooks/          - Custom React hooks
-  lib/            - Utility functions
-  App.tsx         - Main app component
-  main.tsx        - Entry point
-  index.css       - Global styles
-```
-
-## Sections
-
-1. **Preloader** - Logo animation with rotating rings and progress
-2. **Navbar** - Fixed navigation with scroll effects
-3. **Hero** - 3D scene with particle system and rotating shapes
-4. **About** - Company stats and core values
-5. **Engineering Division** - 6 service capability cards
-6. **Services** - Bento grid layout with 6 services
-7. **Timeline** - Horizontal scroll process steps
-8. **Projects** - Filterable masonry gallery
-9. **Testimonials** - Carousel with client quotes
-10. **Why Choose Us** - Animated metrics counters
-11. **Contact** - Premium form with contact info
-12. **Footer** - Multi-column links with animated border
-
-## Performance
-
-- Code splitting with dynamic imports
-- Lazy loading for images
-- Optimized Three.js rendering
-- Smooth 60fps animations
+  Developed by Qiro Tech Innovation Pvt. Ltd.
+  
